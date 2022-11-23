@@ -1,6 +1,10 @@
 <template>
   <v-container fluid>
-    <v-carousel :show-arrows="false" height="400" class="rounded-xl">
+    <v-carousel
+      :show-arrows="false"
+      :height="$vuetify.breakpoint.xsOnly ? '330' : '400'"
+      class="rounded-xl"
+    >
       <v-carousel-item v-for="(movie, i) in featured" :key="i" :src="movie.img">
         <v-list-item
           ><v-list-item-content>
