@@ -16,7 +16,7 @@
       >{{ getGreetingData }},
       {{ $store.getters.currentUser.name }} !</v-card-title
     >
-    <v-carousel hide-delimiters>
+    <v-carousel hide-delimiters height="300">
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
