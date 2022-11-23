@@ -5,7 +5,12 @@
       :height="$vuetify.breakpoint.xsOnly ? '330' : '400'"
       class="rounded-xl"
     >
-      <v-carousel-item v-for="(movie, i) in featured" :key="i" :src="movie.img">
+      <v-carousel-item
+        v-for="(movie, i) in featured"
+        :key="i"
+        :src="movie.img"
+        @click="showPlayer(movie)"
+      >
         <v-list-item
           ><v-list-item-content>
             <v-list-item-title class="text-h5"
@@ -40,7 +45,12 @@
         v-for="(trendingMovie, index) in trendingItems"
         :key="index"
       >
-        <v-card class="ma-2" height="200" width="150">
+        <v-card
+          class="ma-2"
+          height="200"
+          width="150"
+          @click="showPlayer(trendingMovie)"
+        >
           <v-img
             :src="trendingMovie.img"
             class="white--text"
@@ -64,7 +74,12 @@
         v-for="(topRatedMovie, index) in topRatedItems"
         :key="index"
       >
-        <v-card class="ma-2" height="210" width="150">
+        <v-card
+          class="ma-2"
+          height="210"
+          width="150"
+          @click="showPlayer(topRatedMovie)"
+        >
           <v-img
             :src="topRatedMovie.img"
             class="white--text"
@@ -72,11 +87,16 @@
           >
           </v-img>
         </v-card>
-      </v-slide-item>
-    </v-slide-group>
+      </v-slide-item> </v-slide-group
+    ><videoPlayer
+      :showVideoPlayer="showVideoPlayer"
+      :videoPlayerDetails="videoPlayerDetails"
+      @closeVideoPlayer="showVideoPlayer = false"
+    />
   </v-container>
 </template>
 <script>
+import videoPlayer from "../components/videoPlayer/showVideoPlayer.vue";
 import { movie } from "../resources/moviesDatabase";
 export default {
   name: "dashboard-component",
@@ -90,6 +110,8 @@ export default {
     horror: null,
     romance: null,
     documentary: null,
+    showVideoPlayer: false,
+    videoPlayerDetails: {},
   }),
   computed: {
     featured() {
@@ -110,6 +132,15 @@ export default {
           movie.rating >= 4.5
         );
       });
+    },
+  },
+  components: {
+    videoPlayer,
+  },
+  methods: {
+    showPlayer(movie) {
+      this.showVideoPlayer = true;
+      this.videoPlayerDetails = movie;
     },
   },
 };
