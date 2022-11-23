@@ -1,231 +1,83 @@
 <template>
   <v-container fluid>
-    <v-card-title
-      :class="
-        $vuetify.breakpoint.mdAndUp ? 'text-h4 mt-n7' : 'text-h5 justify-center'
-      "
-      ><v-icon
-        size="35"
-        class="mr-2"
-        :color="$vuetify.theme.dark ? 'white' : 'black'"
-        >{{
-          getGreetingData === "Good Evening"
-            ? "mdi-moon-waning-crescent"
-            : "mdi-white-balance-sunny"
-        }}</v-icon
-      >{{ getGreetingData }},
-      {{ $store.getters.currentUser.name }} !</v-card-title
-    >
-    <v-carousel hide-delimiters height="300">
-      <v-carousel-item
-        v-for="(item, i) in items"
-        :key="i"
-        :src="item.src"
-      ></v-carousel-item>
-    </v-carousel>
-    <v-sheet>
-      <v-slide-group v-model="trending" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="topRated" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="tvshows" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="action" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="comedy" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="horror" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group v-model="romance" class="pa-4" center-active show-arrows>
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
-          >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
-    <v-sheet>
-      <v-slide-group
-        v-model="documentary"
-        class="pa-4"
-        center-active
-        show-arrows
+    <v-carousel :show-arrows="false" height="400" class="rounded-xl">
+      <v-carousel-item v-for="(movie, i) in featured" :key="i" :src="movie.img">
+        <v-list-item
+          ><v-list-item-content>
+            <v-list-item-title class="text-h5"
+              >{{ movie.title }}{{ " (" + movie.year + ") / " }}
+              <span class="subtitle-2 font-weight-regular">{{
+                movie.type === "tv" ? "TV Show" : "Movie"
+              }}</span>
+            </v-list-item-title>
+            <v-list-item-subtitle
+              >Director : {{ movie.director }}</v-list-item-subtitle
+            >
+            <v-list-item-subtitle
+              >Starring : {{ movie.maincast }}</v-list-item-subtitle
+            ><v-list-item-subtitle
+              >Genre : {{ movie.genre }}</v-list-item-subtitle
+            ></v-list-item-content
+          ></v-list-item
+        ></v-carousel-item
       >
-        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-          <v-card
-            :color="active ? 'primary' : 'grey lighten-1'"
-            class="ma-4"
-            height="200"
-            width="100"
-            @click="toggle"
+    </v-carousel>
+    <v-card-title v-if="trendingItems.length !== 0" class="mb-n5"
+      >Trending Films</v-card-title
+    >
+    <v-slide-group
+      v-model="trending"
+      class="pa-4 mb-n3"
+      center-active
+      show-arrows
+      v-if="trendingItems.length !== 0"
+    >
+      <v-slide-item
+        v-for="(trendingMovie, index) in trendingItems"
+        :key="index"
+      >
+        <v-card class="ma-2" height="200" width="150">
+          <v-img
+            :src="trendingMovie.img"
+            class="white--text"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
           >
-            <v-row class="fill-height" align="center" justify="center">
-              <v-scale-transition>
-                <v-icon
-                  v-if="active"
-                  color="white"
-                  size="48"
-                  v-text="'mdi-close-circle-outline'"
-                ></v-icon>
-              </v-scale-transition>
-            </v-row>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-sheet>
+          </v-img>
+        </v-card>
+      </v-slide-item>
+    </v-slide-group>
+    <v-card-title v-if="topRatedItems.length !== 0" class="mb-n5"
+      >Top Rated Films</v-card-title
+    >
+    <v-slide-group
+      v-model="trending"
+      class="pa-4 mb-n3"
+      center-active
+      show-arrows
+      v-if="topRatedItems.length !== 0"
+    >
+      <v-slide-item
+        v-for="(topRatedMovie, index) in topRatedItems"
+        :key="index"
+      >
+        <v-card class="ma-2" height="210" width="150">
+          <v-img
+            :src="topRatedMovie.img"
+            class="white--text"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+          >
+          </v-img>
+        </v-card>
+      </v-slide-item>
+    </v-slide-group>
   </v-container>
 </template>
 <script>
+import { movie } from "../resources/moviesDatabase";
 export default {
   name: "dashboard-component",
   data: () => ({
+    movie,
     trending: null,
     topRated: null,
     tvshows: null,
@@ -234,31 +86,26 @@ export default {
     horror: null,
     romance: null,
     documentary: null,
-    items: [
-      {
-        src: "https://m.media-amazon.com/images/M/MV5BYTBjNDBhZWUtZjg1MS00NzhjLWJlNWUtM2E0ZjcwZGExYzY3XkEyXkFqcGdeQXVyMjMzMDI4MjQ@._V1_.jpg",
-      },
-      {
-        src: "https://m.media-amazon.com/images/M/MV5BMTJiMzgwZTktYzZhZC00YzhhLWEzZDUtMGM2NTE4MzQ4NGFmXkEyXkFqcGdeQWpybA@@._V1_.jpg",
-      },
-      {
-        src: "https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg",
-      },
-      {
-        src: "https://m.media-amazon.com/images/M/MV5BMTUxNTM1NTQzN15BMl5BanBnXkFtZTYwNDE4NTE3._V1_.jpg",
-      },
-    ],
   }),
   computed: {
-    getGreetingData() {
-      var today = new Date();
-      var curHr = today.getHours();
-
-      return curHr < 12
-        ? "Good Morning"
-        : curHr > 18
-        ? "Good Evening"
-        : "Good Afternoon";
+    featured() {
+      return this.movie.filter(function (movie) {
+        return movie.isFeatured;
+      });
+    },
+    trendingItems() {
+      return this.movie.filter(function (movie) {
+        return movie.isTrending;
+      });
+    },
+    topRatedItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.rating >= 4.5
+        );
+      });
     },
   },
 };
