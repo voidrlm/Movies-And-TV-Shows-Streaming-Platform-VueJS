@@ -16,12 +16,218 @@
       >{{ getGreetingData }},
       {{ $store.getters.currentUser.name }} !</v-card-title
     >
+    <v-sheet>
+      <v-slide-group v-model="trending" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="topRated" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="tvshows" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="action" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="comedy" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="horror" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group v-model="romance" class="pa-4" center-active show-arrows>
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
+    <v-sheet>
+      <v-slide-group
+        v-model="documentary"
+        class="pa-4"
+        center-active
+        show-arrows
+      >
+        <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
+          <v-card
+            :color="active ? 'primary' : 'grey lighten-1'"
+            class="ma-4"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <v-row class="fill-height" align="center" justify="center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="active"
+                  color="white"
+                  size="48"
+                  v-text="'mdi-close-circle-outline'"
+                ></v-icon>
+              </v-scale-transition>
+            </v-row>
+          </v-card>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
   </v-container>
 </template>
 <script>
 export default {
   name: "dashboard-component",
-  data: () => ({}),
+  data: () => ({
+    trending: null,
+    topRated: null,
+    tvshows: null,
+    action: null,
+    comedy: null,
+    horror: null,
+    romance: null,
+    documentary: null,
+  }),
   computed: {
     getGreetingData() {
       var today = new Date();
