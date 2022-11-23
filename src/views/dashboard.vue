@@ -16,6 +16,13 @@
       >{{ getGreetingData }},
       {{ $store.getters.currentUser.name }} !</v-card-title
     >
+    <v-carousel hide-delimiters>
+      <v-carousel-item
+        v-for="(item, i) in items"
+        :key="i"
+        :src="item.src"
+      ></v-carousel-item>
+    </v-carousel>
     <v-sheet>
       <v-slide-group v-model="trending" class="pa-4" center-active show-arrows>
         <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
@@ -227,6 +234,20 @@ export default {
     horror: null,
     romance: null,
     documentary: null,
+    items: [
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+      },
+      {
+        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+      },
+    ],
   }),
   computed: {
     getGreetingData() {
