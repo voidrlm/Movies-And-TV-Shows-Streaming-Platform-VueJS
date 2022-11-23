@@ -236,16 +236,16 @@ export default {
     documentary: null,
     items: [
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
+        src: "https://m.media-amazon.com/images/M/MV5BYTBjNDBhZWUtZjg1MS00NzhjLWJlNWUtM2E0ZjcwZGExYzY3XkEyXkFqcGdeQXVyMjMzMDI4MjQ@._V1_.jpg",
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
+        src: "https://m.media-amazon.com/images/M/MV5BMTJiMzgwZTktYzZhZC00YzhhLWEzZDUtMGM2NTE4MzQ4NGFmXkEyXkFqcGdeQWpybA@@._V1_.jpg",
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+        src: "https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg",
       },
       {
-        src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+        src: "https://m.media-amazon.com/images/M/MV5BMTUxNTM1NTQzN15BMl5BanBnXkFtZTYwNDE4NTE3._V1_.jpg",
       },
     ],
   }),
