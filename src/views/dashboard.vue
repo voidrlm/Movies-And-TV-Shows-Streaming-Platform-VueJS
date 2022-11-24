@@ -89,6 +89,7 @@
         </v-card>
       </v-slide-item> </v-slide-group
     ><videoPlayer
+      ref="videoPlayer"
       :showVideoPlayer="showVideoPlayer"
       :videoPlayerDetails="videoPlayerDetails"
       @closeVideoPlayer="showVideoPlayer = false"
@@ -141,6 +142,7 @@ export default {
     showPlayer(movie) {
       this.showVideoPlayer = true;
       this.videoPlayerDetails = movie;
+      this.$refs.videoPlayer.isVideoReady = false;
     },
   },
 };
