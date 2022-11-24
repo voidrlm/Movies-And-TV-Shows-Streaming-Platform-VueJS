@@ -32,15 +32,18 @@
         </v-card-subtitle>
       </v-card-text>
 
-      <v-card-actions>
+      <v-card-actions class="justify-center pa-4 mt-n3">
         <v-btn
           color="accent"
-          class="rounded-xl"
+          class="rounded-xl px-4"
+          elevation="0"
           @click.stop="$emit('closeVideoPlayer')"
         >
           Close
         </v-btn>
-        <v-btn color="accent" class="rounded-xl"> Play </v-btn>
+        <v-btn color="accent" class="rounded-xl px-4 ml-3" elevation="0">
+          Play <v-icon>mdi-play</v-icon>
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
