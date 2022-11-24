@@ -22,6 +22,7 @@ export const movie = [
     rating: 4.5,
     isFeatured: true,
     isTrending: false,
+    link: "HhesaQXLuRY",
   },
   {
     title: "Avatar",
