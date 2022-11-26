@@ -2,7 +2,14 @@
   <v-dialog :value="showVideoPlayer" fullscreen
     ><v-card tile>
       <v-toolbar dense>
-        <v-btn elevation="0" icon @click="$emit('closeVideoPlayer')">
+        <v-btn
+          elevation="0"
+          icon
+          @click="
+            $emit('closeVideoPlayer');
+            isVideoReady = false;
+          "
+        >
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>
 
