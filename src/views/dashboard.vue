@@ -31,64 +31,17 @@
         ></v-carousel-item
       >
     </v-carousel>
-    <v-card-title v-if="trendingItems.length !== 0" class="mb-n5"
-      >Trending Films</v-card-title
-    >
-    <v-slide-group
-      v-model="trending"
-      class="pa-4 mb-n3"
-      center-active
-      show-arrows
-      v-if="trendingItems.length !== 0"
-    >
-      <v-slide-item
-        v-for="(trendingMovie, index) in trendingItems"
-        :key="index"
-      >
-        <v-card
-          class="ma-2"
-          height="200"
-          width="150"
-          @click="showPlayer(trendingMovie)"
-        >
-          <v-img
-            :src="trendingMovie.img"
-            class="white--text"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-          >
-          </v-img>
-        </v-card>
-      </v-slide-item>
-    </v-slide-group>
-    <v-card-title v-if="topRatedItems.length !== 0" class="mb-n5"
-      >Top Rated Films</v-card-title
-    >
-    <v-slide-group
-      v-model="trending"
-      class="pa-4 mb-n3"
-      center-active
-      show-arrows
-      v-if="topRatedItems.length !== 0"
-    >
-      <v-slide-item
-        v-for="(topRatedMovie, index) in topRatedItems"
-        :key="index"
-      >
-        <v-card
-          class="ma-2"
-          height="210"
-          width="150"
-          @click="showPlayer(topRatedMovie)"
-        >
-          <v-img
-            :src="topRatedMovie.img"
-            class="white--text"
-            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-          >
-          </v-img>
-        </v-card>
-      </v-slide-item> </v-slide-group
-    ><videoPlayer
+    <moviesSlides
+      :show="trendingItems.length !== 0"
+      :title="'Trending Now'"
+      :movies="trendingItems"
+    />
+    <moviesSlides
+      :show="topRatedItems.length !== 0"
+      :title="'Top Rated Films'"
+      :movies="topRatedItems"
+    />
+    <videoPlayer
       v-if="showVideoPlayer"
       ref="videoPlayer"
       :showVideoPlayer="showVideoPlayer"
@@ -98,6 +51,7 @@
   </v-container>
 </template>
 <script>
+import moviesSlides from "@/components/navigation/moviesSlides.vue";
 import videoPlayer from "../components/videoPlayer/showVideoPlayer.vue";
 import { movie } from "../resources/moviesDatabase";
 export default {
@@ -138,6 +92,7 @@ export default {
   },
   components: {
     videoPlayer,
+    moviesSlides,
   },
   methods: {
     showPlayer(movie) {
