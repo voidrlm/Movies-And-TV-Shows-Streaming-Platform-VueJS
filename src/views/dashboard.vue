@@ -61,6 +61,11 @@
       :title="'Horror Films'"
       :movies="horrorItems"
     />
+    <moviesSlides
+      :show="animatedItems.length !== 0"
+      :title="'Animated Films'"
+      :movies="animatedItems"
+    />
     <videoPlayer
       v-if="showVideoPlayer"
       ref="videoPlayer"
@@ -142,6 +147,15 @@ export default {
           movie.isFeatured !== true &&
           movie.isTrending !== true &&
           movie.genre === "Horror"
+        );
+      });
+    },
+    animatedItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Animated"
         );
       });
     },
