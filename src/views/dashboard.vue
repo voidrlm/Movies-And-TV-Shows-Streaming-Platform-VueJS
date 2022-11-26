@@ -41,6 +41,26 @@
       :title="'Top Rated Films'"
       :movies="topRatedItems"
     />
+    <moviesSlides
+      :show="actionItems.length !== 0"
+      :title="'Action Films'"
+      :movies="actionItems"
+    />
+    <moviesSlides
+      :show="comedyItems.length !== 0"
+      :title="'Comedy Films'"
+      :movies="comedyItems"
+    />
+    <moviesSlides
+      :show="sciFiItems.length !== 0"
+      :title="'Sci-Fi Films'"
+      :movies="sciFiItems"
+    />
+    <moviesSlides
+      :show="horrorItems.length !== 0"
+      :title="'Horror Films'"
+      :movies="horrorItems"
+    />
     <videoPlayer
       v-if="showVideoPlayer"
       ref="videoPlayer"
@@ -86,6 +106,42 @@ export default {
           movie.isFeatured !== true &&
           movie.isTrending !== true &&
           movie.rating >= 4.5
+        );
+      });
+    },
+    actionItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Action"
+        );
+      });
+    },
+    sciFiItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Sci-Fi"
+        );
+      });
+    },
+    comedyItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Comedy"
+        );
+      });
+    },
+    horrorItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Horror"
         );
       });
     },
