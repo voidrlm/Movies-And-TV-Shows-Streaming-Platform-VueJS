@@ -2,6 +2,13 @@
   <v-dialog :value="showVideoPlayer" fullscreen
     ><v-card tile>
       <v-toolbar dense>
+        <v-toolbar-title
+          >{{ videoPlayerDetails.title
+          }}{{ " (" + videoPlayerDetails.year + ") " }}</v-toolbar-title
+        >
+
+        <v-spacer></v-spacer>
+
         <v-btn
           elevation="0"
           icon
@@ -10,36 +17,17 @@
             isVideoReady = false;
           "
         >
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-
-        <v-toolbar-title class="ml-n5"
-          >{{ videoPlayerDetails.title
-          }}{{ " (" + videoPlayerDetails.year + ") " }}</v-toolbar-title
-        >
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
+          <v-icon>mdi-chevron-down</v-icon>
         </v-btn>
       </v-toolbar>
 
-      <v-card-text
-        ><v-progress-linear
+      <v-card-text>
+        <v-progress-linear
           v-if="!isVideoReady"
           indeterminate
           color="accent"
         ></v-progress-linear>
-        <br /><iframe
+        <iframe
           @load="isVideoReady = true"
           id="video"
           width="100%"
