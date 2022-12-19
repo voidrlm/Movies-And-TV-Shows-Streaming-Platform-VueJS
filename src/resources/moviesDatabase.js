@@ -32,7 +32,7 @@ export const movie = [
   {
     title: "Avatar: The Way of Water",
     year: "2022",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "James Cameron",
     maincast: "Sam Worthington,Zoe Saldana",
@@ -47,7 +47,7 @@ export const movie = [
   {
     title: "Avatar",
     year: "2009",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "James Cameron",
     maincast: "Sam Worthington,Zoe Saldana",
@@ -78,7 +78,7 @@ export const movie = [
   {
     title: "The Matrix",
     year: "1999",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Lana Wachowski,Lilly Wachowski",
     maincast: "Keanu Reaves",
@@ -91,7 +91,7 @@ export const movie = [
   {
     title: "Black Panther:Wakanda Forever",
     year: "2022",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Ryan Coogler",
     maincast: "Letitia Wright",
@@ -130,7 +130,7 @@ export const movie = [
   {
     title: "SPIDER-MAN: NO WAY HOME",
     year: "2021",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Jon Watts",
     maincast: "Tom Holland,Zendaya",
@@ -143,7 +143,7 @@ export const movie = [
   {
     title: "VENOM",
     year: "2018",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Ruben Fleischer",
     maincast: "Tom Hardy",
@@ -156,7 +156,7 @@ export const movie = [
   {
     title: "POKÉMON Detective Pikachu",
     year: "2019",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Rob Letterman",
     maincast: "Ryan Reynolds",
@@ -221,7 +221,7 @@ export const movie = [
   {
     title: "Avengers: Infinity War",
     year: "2017",
-    genre: "Sci-Fi",
+    genre: "Sci-fi",
     type: "movie",
     director: "Anthony and Joe Russo",
     maincast:
