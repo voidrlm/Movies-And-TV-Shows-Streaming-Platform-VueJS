@@ -48,12 +48,13 @@
           Genre : {{ videoPlayerDetails.genre }}
         </v-card-subtitle>
       </v-card-text>
-
-      <moviesSlides
-        :show="similiarMovies.length !== 0"
-        :title="'Similiar Movies'"
-        :movies="similiarMovies"
-    /></v-card>
+      <div class="mx-5">
+        <moviesSlides
+          :show="similiarMovies.length !== 0"
+          :title="'Similiar Movies'"
+          :movies="similiarMovies"
+        /></div
+    ></v-card>
   </v-dialog>
 </template>
 
