@@ -128,7 +128,7 @@ export default {
         return (
           movie.isFeatured !== true &&
           movie.isTrending !== true &&
-          movie.genre === "Sci-Fi"
+          (movie.genre === "Sci-Fi" || movie.genre === "Sci-fi")
         );
       });
     },
