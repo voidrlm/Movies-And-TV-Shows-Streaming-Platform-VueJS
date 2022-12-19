@@ -73,6 +73,13 @@
       :videoPlayerDetails="videoPlayerDetails"
       @closeVideoPlayer="showVideoPlayer = false"
     />
+    <v-footer color="primary lighten-1" padless>
+      <v-row justify="center" no-gutters>
+        <v-col class="accent lighten-2 py-4 text-center white--text" cols="12">
+          {{ new Date().getFullYear() }} — <strong>Created By Arjun.V</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-container>
 </template>
 <script>
@@ -82,6 +89,7 @@ import { movie } from "../resources/moviesDatabase";
 export default {
   name: "dashboard-component",
   data: () => ({
+    links: ["Home", "About Us", "Team", "Services", "Blog", "Contact Us"],
     movie,
     trending: null,
     topRated: null,
@@ -128,7 +136,7 @@ export default {
         return (
           movie.isFeatured !== true &&
           movie.isTrending !== true &&
-          (movie.genre === "Sci-Fi" || movie.genre === "Sci-fi")
+          movie.genre === "Sci-fi"
         );
       });
     },
