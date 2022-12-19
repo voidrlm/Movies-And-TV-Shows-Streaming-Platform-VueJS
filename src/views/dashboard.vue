@@ -8,7 +8,7 @@
       <v-carousel-item
         v-for="(movie, i) in featured"
         :key="i"
-        :src="movie.img"
+        :src="movie.banner"
         @click="showPlayer(movie)"
       >
         <v-list-item
