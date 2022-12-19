@@ -6,7 +6,9 @@ export const movie = [
     type: "movie",
     director: "Brian De Palma",
     maincast: "Al Pacino",
-    img: "https://m.media-amazon.com/images/M/MV5BYTBjNDBhZWUtZjg1MS00NzhjLWJlNWUtM2E0ZjcwZGExYzY3XkEyXkFqcGdeQXVyMjMzMDI4MjQ@._V1_.jpg",
+    img: "https://m.media-amazon.com/images/M/MV5BNjdjNGQ4NDEtNTEwYS00MTgxLTliYzQtYzE2ZDRiZjFhZmNlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_FMjpg_UX1000_.jpg",
+    banner:
+      "https://m.media-amazon.com/images/M/MV5BYTBjNDBhZWUtZjg1MS00NzhjLWJlNWUtM2E0ZjcwZGExYzY3XkEyXkFqcGdeQXVyMjMzMDI4MjQ@._V1_.jpg",
     rating: 4.5,
     isFeatured: true,
     isTrending: false,
@@ -19,7 +21,9 @@ export const movie = [
     type: "tv",
     director: "Vince Gilligan",
     maincast: "Bryan Cranston,Anna Gunn,Aaron Paul",
-    img: "https://m.media-amazon.com/images/M/MV5BMTJiMzgwZTktYzZhZC00YzhhLWEzZDUtMGM2NTE4MzQ4NGFmXkEyXkFqcGdeQWpybA@@._V1_.jpg",
+    img: "https://m.media-amazon.com/images/M/MV5BYTU3NWI5OGMtZmZhNy00MjVmLTk1YzAtZjA3ZDA3NzcyNDUxXkEyXkFqcGdeQXVyODY5Njk4Njc@._V1_FMjpg_UX1000_.jpg",
+    banner:
+      "https://m.media-amazon.com/images/M/MV5BMTJiMzgwZTktYzZhZC00YzhhLWEzZDUtMGM2NTE4MzQ4NGFmXkEyXkFqcGdeQWpybA@@._V1_.jpg",
     rating: 4.5,
     isFeatured: true,
     isTrending: false,
@@ -32,7 +36,9 @@ export const movie = [
     type: "movie",
     director: "James Cameron",
     maincast: "Sam Worthington,Zoe Saldana",
-    img: "https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg",
+    img: "https://m.media-amazon.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_.jpg",
+    banner:
+      "https://m.media-amazon.com/images/M/MV5BMTMxOTEwNDcxN15BMl5BanBnXkFtZTcwOTg0MTUzNA@@._V1_.jpg",
     rating: 4.5,
     isFeatured: true,
     isTrending: false,
@@ -45,7 +51,10 @@ export const movie = [
     type: "movie",
     director: "Sam Raimi",
     maincast: "Tobey Maguire,Kirsten Dunst",
-    img: "https://occ-0-32-988.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABZrkp8RvUrZVjc9GYn8-jlxnEa66xgTexL7oinRF0s2MtkbCV5CsuuRlR48sqMP0twyY46ToqL__Y3uflZ_Ln0DgZrqy6cfKas87.jpg?r=f3d",
+    img: "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
+    banner:
+      "https://occ-0-32-988.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABZrkp8RvUrZVjc9GYn8-jlxnEa66xgTexL7oinRF0s2MtkbCV5CsuuRlR48sqMP0twyY46ToqL__Y3uflZ_Ln0DgZrqy6cfKas87.jpg?r=f3d",
+
     rating: 4,
     isFeatured: true,
     isTrending: false,
