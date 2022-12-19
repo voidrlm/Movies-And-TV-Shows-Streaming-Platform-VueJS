@@ -47,19 +47,45 @@
         ><v-card-subtitle class="pb-0">
           Genre : {{ videoPlayerDetails.genre }}
         </v-card-subtitle>
-      </v-card-text></v-card
-    >
+      </v-card-text>
+
+      <moviesSlides
+        :show="similiarMovies.length !== 0"
+        :title="'Similiar Movies'"
+        :movies="similiarMovies"
+    /></v-card>
   </v-dialog>
 </template>
 
 <script>
+import { movie } from "../../resources/moviesDatabase";
+import moviesSlides from "../navigation/moviesSlides.vue";
 export default {
   name: "video-component",
-  props: { showVideoPlayer: Boolean, videoPlayerDetails: Object },
-  data() {
-    return { isVideoReady: false };
+  props: {
+    showVideoPlayer: Boolean,
+    videoPlayerDetails: Object,
   },
-  computed: {},
+  data() {
+    return {
+      movie,
+      isVideoReady: false,
+      similiarMovies: [],
+    };
+  },
+  components: {
+    moviesSlides,
+  },
+  beforeUpdate() {
+    let self = this;
+    this.similiarMovies = this.movie.filter(function (movie) {
+      return (
+        movie.genre === self.videoPlayerDetails.genre &&
+        movie.title !== self.videoPlayerDetails.title &&
+        movie.year !== self.videoPlayerDetails.year
+      );
+    });
+  },
   methods: {},
 };
 </script>
