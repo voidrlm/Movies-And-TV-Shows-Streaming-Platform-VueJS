@@ -37,7 +37,7 @@
 <script>
 import videoPlayer from "../videoPlayer/showVideoPlayer.vue";
 export default {
-  name: "video-component",
+  name: "movie-slide-component",
   props: { show: Boolean, movies: Array, title: String },
   data() {
     return { selected: null, showVideoPlayer: false, videoPlayerDetails: {} };
