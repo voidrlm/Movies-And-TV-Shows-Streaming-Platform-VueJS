@@ -12,30 +12,37 @@
         @click="showPlayer(movie)"
       >
         <v-list-item
-          ><v-list-item-content>
-            <v-list-item-title class="text-h5"
-              >{{ movie.title }}{{ " (" + movie.year + ") / " }}
-              <span class="subtitle-2 font-weight-regular">{{
-                movie.type === "tv" ? "TV Show" : "Movie"
-              }}</span>
-            </v-list-item-title>
-            <v-list-item-subtitle
-              >Director : {{ movie.director }}</v-list-item-subtitle
-            >
-            <v-list-item-subtitle
-              >Starring : {{ movie.maincast }}</v-list-item-subtitle
+          ><v-list-item-content
+            ><v-list-item-title>
+              <v-chip class="text-h5 mt-2"
+                >{{ movie.title }}{{ " (" + movie.year + ") / " }}
+                <span class="subtitle-2 font-weight-regular">{{
+                  movie.type === "tv" ? "TV Show" : "Movie"
+                }}</span></v-chip
+              ></v-list-item-title
             ><v-list-item-subtitle
-              >Genre : {{ movie.genre }}</v-list-item-subtitle
+              ><v-chip class="mt-2"
+                >Director : {{ movie.director }}</v-chip
+              ></v-list-item-subtitle
+            ><v-list-item-subtitle>
+              <v-chip class="mt-2"
+                >Starring : {{ movie.maincast }}</v-chip
+              ></v-list-item-subtitle
+            ><v-list-item-subtitle>
+              <v-chip class="mt-2"
+                >Genre : {{ movie.genre }}</v-chip
+              ></v-list-item-subtitle
             ></v-list-item-content
           ></v-list-item
-        ></v-carousel-item
-      >
+        >
+      </v-carousel-item>
     </v-carousel>
     <moviesSlides
       :show="trendingItems.length !== 0"
       :title="'Trending Now'"
       :movies="trendingItems"
     />
+    <v-divider class="ma-3" />
     <moviesSlides
       :show="topRatedItems.length !== 0"
       :title="'Top Rated Films'"
