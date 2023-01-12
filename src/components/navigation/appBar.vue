@@ -5,6 +5,9 @@
     dense
     flat
   >
+    <v-card-title class="mt-1 text-h5 font-weight-bold"
+      >Movies<v-icon class="ml-2">mdi-video</v-icon></v-card-title
+    >
     <v-spacer></v-spacer>
     <span
       @click="showClock = true"
