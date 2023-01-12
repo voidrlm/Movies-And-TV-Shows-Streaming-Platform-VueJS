@@ -49,7 +49,7 @@
         </v-card-subtitle>
       </v-card-text>
       <div class="mx-5">
-        <moviesSlides
+        <movie-slides
           :show="similiarMovies.length !== 0"
           :title="'Similiar Movies'"
           :movies="similiarMovies"
@@ -60,7 +60,7 @@
 
 <script>
 import { movie } from "../../resources/moviesDatabase";
-import moviesSlides from "../navigation/moviesSlides.vue";
+import movieSlides from "../navigation/moviesSlides.vue";
 export default {
   name: "video-component",
   props: {
@@ -75,7 +75,7 @@ export default {
     };
   },
   components: {
-    moviesSlides,
+    movieSlides,
   },
   beforeUpdate() {
     let self = this;

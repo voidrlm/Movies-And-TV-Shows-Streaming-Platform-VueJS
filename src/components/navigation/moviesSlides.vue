@@ -10,9 +10,13 @@
       show-arrows
       v-if="movies.length !== 0"
     >
-      <v-slide-item v-for="(movie, index) in movies" :key="index">
+      <v-slide-item
+        v-for="(movie, index) in movies"
+        :key="index"
+        class="elevation-0"
+      >
         <v-card
-          class="ma-2"
+          class="ma-5"
           height="200"
           width="150"
           @click="showPlayer(movie)"
@@ -37,7 +41,7 @@
 <script>
 import videoPlayer from "../videoPlayer/showVideoPlayer.vue";
 export default {
-  name: "movie-slide-component",
+  name: "movie-slides",
   props: { show: Boolean, movies: Array, title: String },
   data() {
     return { selected: null, showVideoPlayer: false, videoPlayerDetails: {} };
