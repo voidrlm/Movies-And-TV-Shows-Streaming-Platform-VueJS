@@ -49,7 +49,7 @@
         </v-card-subtitle>
       </v-card-text>
       <div class="mx-5">
-        <movie-slides
+        <movieSlides
           :show="similiarMovies.length !== 0"
           :title="'Similiar Movies'"
           :movies="similiarMovies"
