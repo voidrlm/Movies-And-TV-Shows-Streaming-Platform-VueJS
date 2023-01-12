@@ -49,7 +49,7 @@
         </v-card-subtitle>
       </v-card-text>
       <div class="mx-5">
-        <movieSlides
+        <movie-Slides
           :show="similiarMovies.length !== 0"
           :title="'Similiar Movies'"
           :movies="similiarMovies"
@@ -75,7 +75,7 @@ export default {
     };
   },
   components: {
-    movieSlides,
+    movieSlides: movieSlides,
   },
   beforeUpdate() {
     let self = this;
