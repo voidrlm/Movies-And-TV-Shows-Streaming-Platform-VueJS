@@ -41,5 +41,6 @@ Open a web browser and navigate to http://localhost:8080
 
 ## Built With
 VueJS - JavaScript framework for building user interfaces
+
 Vuetify - Material Design component framework for VueJS
 
