@@ -1,9 +1,12 @@
 # Movies-And-TV-Shows-Streaming-Platform-UI
 Creating a movie,tv show streaming web app using Vue and Vuetify
 
-## View Preview 
+## Live Demo
+Use a dummy e-mail and password to signup and continue
 
-https://imgur.com/a/GeePmmC 
+<p>
+    <a href="https://voidrlm.github.io/Movies-And-TV-Shows-Streaming-Platform-VueJS/#/" target="_blank">Online Demo</a>
+</p>
 
 A movie streaming service built using VueJS and Vuetify.
 
