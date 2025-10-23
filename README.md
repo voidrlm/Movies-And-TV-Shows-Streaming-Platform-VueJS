@@ -1,7 +1,8 @@
 # Movies-And-TV-Shows-Streaming-Platform-UI
 Creating a movie,tv show streaming web app using Vue and Vuetify
 
-<img src="https://imgur.com/ukvJeDs" alt="App screenshot" width="600">
+# Screenshot
+https://imgur.com/ukvJeDs
 
 ## Live Demo
 Use a dummy e-mail and password to signup and continue
