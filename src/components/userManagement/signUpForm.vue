@@ -74,6 +74,7 @@
   </v-card>
 </template>
 <script>
+// Dummy sign-up form: does not persist users, only validates input
 export default {
   name: "sign-up-component",
   props: {},
@@ -95,28 +96,22 @@ export default {
       (value) => !!value || "Password is required.",
       (value) => (value && value.length >= 8) || "Minimum 8 characters",
     ],
-    userDatabase: [],
+    // Dummy user database for demonstration only
+    userDatabase: [
+      { name: "demo", mail: "demo@example.com" },
+      { name: "test", mail: "test@example.com" },
+    ],
   }),
-
   computed: {},
   methods: {
     isUserValid() {
-      this.userDatabase = [];
+      // Only checks against hardcoded dummy users
       if (
-        localStorage.getItem("userDatabase") !== null &&
-        JSON.parse(localStorage.getItem("userDatabase")).length !== 0
+        this.userDatabase.some((user) => user.name === this.name) ||
+        this.userDatabase.some((user) => user.mail === this.email)
       ) {
-        this.userDatabase = JSON.parse(localStorage.getItem("userDatabase"));
-        if (
-          this.userDatabase.some((user) => user.name === this.name) ||
-          this.userDatabase.some((user) => user.mail === this.email)
-        ) {
-          return false;
-        } else {
-          return true;
-        }
+        return false;
       } else {
-        localStorage.setItem("userDatabase", JSON.stringify(this.userDatabase));
         return true;
       }
     },
@@ -128,19 +123,14 @@ export default {
     createUser() {
       if (this.$refs.signUpForm.validate()) {
         if (this.isUserValid()) {
-          let newUser = {
-            name: this.name,
-            mail: this.email,
-            password: this.password,
-            avatar: null,
-          };
-          this.userDatabase.push(newUser);
-          localStorage.setItem(
-            "userDatabase",
-            JSON.stringify(this.userDatabase)
-          );
+          // In a real app, user would be added to backend or localStorage
           this.goToLoginPage();
+          this.$vuetify.toast &&
+            this.$vuetify.toast.success("Account created (dummy)");
+          alert("Account created (dummy)");
         } else {
+          this.$vuetify.toast &&
+            this.$vuetify.toast.error("Username/Email already exists.");
           alert("Username/Email already exists.");
         }
       }

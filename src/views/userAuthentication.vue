@@ -82,36 +82,46 @@ export default {
       (value) => (value && value.length >= 8) || "Minimum 8 characters",
     ],
     showSignUpForm: false,
-    userDatabase: [],
+    // Dummy user database for mock authentication
+    userDatabase: [
+      {
+        name: "demo",
+        password: "password123",
+        mail: "demo@example.com",
+        avatar: "",
+      },
+      {
+        name: "test",
+        password: "testpass",
+        mail: "test@example.com",
+        avatar: "",
+      },
+    ],
   }),
   components: {
     signUpForm,
   },
   computed: {},
   beforeCreate() {
+    // Redirect if already logged in
     if (
       JSON.stringify(this.$store.getters.currentUser) !== JSON.stringify({})
     ) {
-      this.$router.push({
-        path: "/dashboard",
-      });
+      this.$router.push({ path: "/dashboard" });
     }
   },
   methods: {
+    // Dummy authentication: checks hardcoded users only
     isUserValid() {
-      this.userDatabase = [];
-      if (localStorage.getItem("userDatabase") !== null) {
-        this.userDatabase = JSON.parse(localStorage.getItem("userDatabase"));
-        for (var i = 0; i < this.userDatabase.length; i++) {
-          if (
-            this.name === this.userDatabase[i].name &&
-            this.password === this.userDatabase[i].password
-          ) {
-            return [true, this.userDatabase[i]];
-          }
+      for (let i = 0; i < this.userDatabase.length; i++) {
+        if (
+          this.name === this.userDatabase[i].name &&
+          this.password === this.userDatabase[i].password
+        ) {
+          return [true, this.userDatabase[i]];
         }
-        return [false];
-      } else return [false];
+      }
+      return [false];
     },
     performAction(action) {
       if (action === "signup") {
@@ -125,11 +135,13 @@ export default {
               avatar: this.isUserValid()[1].avatar,
             });
             if (this.$router.currentRoute.path === "/") {
-              this.$router.push({
-                path: "/dashboard",
-              });
+              this.$router.push({ path: "/dashboard" });
             }
-          } else alert("Cannot find user.");
+          } else {
+            this.$vuetify.toast &&
+              this.$vuetify.toast.error("Invalid username or password.");
+            alert("Invalid username or password.");
+          }
         }
       }
     },
