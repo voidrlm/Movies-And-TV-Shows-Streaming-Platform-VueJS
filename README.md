@@ -8,7 +8,7 @@ https://imgur.com/ukvJeDs
 
 ## Live Demo
 
-Use a dummy e-mail and password to signup and continue
+Demo available — authentication removed; open the app directly
 
 <p>
     <a href="https://voidrlm.github.io/Movies-And-TV-Shows-Streaming-Platform-VueJS/#/" target="_blank">Online Demo</a>
