@@ -1,23 +1,34 @@
 <template>
   <v-app-bar
-    :color="$vuetify.theme.dark ? '#121212' : '#FFFFFF'"
+    :color="$vuetify.theme.dark ? '#0d0d0d' : '#FFFFFF'"
     app
-    dense
-    flat
+    elevate-on-scroll
+    elevation="0"
+    height="64"
   >
-    <v-card-title class="mt-1 text-h5 font-weight-bold"
-      >Movies<v-icon class="ml-2">mdi-video</v-icon></v-card-title
-    >
+    <div class="d-flex align-center">
+      <v-icon color="primary" size="32" class="mr-2">mdi-filmstrip</v-icon>
+      <span class="text-h5 font-weight-bold">
+        <span class="primary--text">Stream</span>Flix
+      </span>
+    </div>
+
     <v-spacer></v-spacer>
-    <span
-      @click="showClock = true"
+
+    <v-chip
       v-if="$vuetify.breakpoint.mdAndUp"
-      class="subtitle-1"
+      small
+      outlined
+      class="mr-2"
+      @click="showClock = true"
       style="cursor: pointer"
-      >{{ dateTime.hours }}:{{ dateTime.minutes }}{{ " "
-      }}{{ dateTime.ampm }}</span
     >
+      <v-icon small left>mdi-clock-outline</v-icon>
+      {{ dateTime.hours }}:{{ dateTime.minutes }} {{ dateTime.ampm }}
+    </v-chip>
+
     <appBarMenu />
+
     <div v-if="showClock">
       <clockDialog
         :showClock="showClock"

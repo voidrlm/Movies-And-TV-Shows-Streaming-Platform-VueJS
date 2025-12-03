@@ -1,78 +1,129 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="pa-0 pa-md-4">
+    <!-- Hero Carousel -->
     <v-carousel
-      :show-arrows="false"
-      :height="$vuetify.breakpoint.xsOnly ? '330' : '400'"
-      class="rounded-xl"
+      :show-arrows="$vuetify.breakpoint.mdAndUp"
+      :height="$vuetify.breakpoint.xsOnly ? '350' : '500'"
+      class="rounded-0 rounded-md-xl elevation-8"
+      cycle
+      interval="5000"
+      hide-delimiter-background
+      delimiter-icon="mdi-circle-small"
     >
       <v-carousel-item
         v-for="(movie, i) in featured"
         :key="i"
         :src="movie.banner"
         @click="showPlayer(movie)"
+        style="cursor: pointer"
       >
-        <v-list-item
-          ><v-list-item-content
-            ><v-list-item-title>
-              <v-chip class="text-h5 mt-2"
-                >{{ movie.title }}{{ " (" + movie.year + ") / " }}
-                <span class="subtitle-2 font-weight-regular">{{
-                  movie.type === "tv" ? "TV Show" : "Movie"
-                }}</span></v-chip
-              ></v-list-item-title
-            ><v-list-item-subtitle
-              ><v-chip class="mt-2"
-                >Director : {{ movie.director }}</v-chip
-              ></v-list-item-subtitle
-            ><v-list-item-subtitle>
-              <v-chip class="mt-2"
-                >Starring : {{ movie.maincast }}</v-chip
-              ></v-list-item-subtitle
-            ><v-list-item-subtitle>
-              <v-chip class="mt-2"
-                >Genre : {{ movie.genre }}</v-chip
-              ></v-list-item-subtitle
-            ></v-list-item-content
-          ></v-list-item
+        <div
+          class="fill-height"
+          style="
+            background: linear-gradient(
+              to top,
+              rgba(0, 0, 0, 0.9) 0%,
+              rgba(0, 0, 0, 0.3) 50%,
+              transparent 100%
+            );
+          "
         >
+          <v-container class="fill-height" fluid>
+            <v-row align="end" class="pb-8 pb-md-12 px-4">
+              <v-col cols="12" md="8">
+                <v-chip
+                  small
+                  class="mb-2"
+                  :color="movie.type === 'tv' ? 'primary' : 'accent'"
+                >
+                  {{ movie.type === "tv" ? "📺 TV Show" : "🎬 Movie" }}
+                </v-chip>
+                <h1
+                  class="text-h4 text-md-h2 font-weight-bold white--text mb-2"
+                >
+                  {{ movie.title }}
+                </h1>
+                <p class="text-subtitle-1 white--text mb-3">
+                  {{ movie.year }} • {{ movie.genre }} • ⭐ {{ movie.rating }}/5
+                </p>
+                <p
+                  class="text-body-2 grey--text text--lighten-1 mb-4"
+                  v-if="$vuetify.breakpoint.mdAndUp"
+                >
+                  <strong>Director:</strong> {{ movie.director }} &nbsp;|&nbsp;
+                  <strong>Cast:</strong> {{ movie.maincast }}
+                </p>
+                <v-btn
+                  rounded
+                  color="primary"
+                  class="mr-2"
+                  @click.stop="showPlayer(movie)"
+                >
+                  <v-icon left>mdi-play</v-icon> Watch Trailer
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-carousel-item>
     </v-carousel>
-    <moviesSlides
-      :show="trendingItems.length !== 0"
-      :title="'Trending Now'"
-      :movies="trendingItems"
-    />
-    <v-divider class="ma-3" />
-    <moviesSlides
-      :show="topRatedItems.length !== 0"
-      :title="'Top Rated Films'"
-      :movies="topRatedItems"
-    />
-    <moviesSlides
-      :show="actionItems.length !== 0"
-      :title="'Action Films'"
-      :movies="actionItems"
-    />
-    <moviesSlides
-      :show="comedyItems.length !== 0"
-      :title="'Comedy Films'"
-      :movies="comedyItems"
-    />
-    <moviesSlides
-      :show="sciFiItems.length !== 0"
-      :title="'Sci-Fi Films'"
-      :movies="sciFiItems"
-    />
-    <moviesSlides
-      :show="horrorItems.length !== 0"
-      :title="'Horror Films'"
-      :movies="horrorItems"
-    />
-    <moviesSlides
-      :show="animatedItems.length !== 0"
-      :title="'Animated Films'"
-      :movies="animatedItems"
-    />
+    <!-- Content Sections -->
+    <div class="px-2 px-md-4 mt-6">
+      <moviesSlides
+        :show="trendingItems.length !== 0"
+        :title="'🔥 Trending Now'"
+        :movies="trendingItems"
+        :icon="'mdi-fire'"
+      />
+
+      <moviesSlides
+        :show="tvShowItems.length !== 0"
+        :title="'📺 TV Shows'"
+        :movies="tvShowItems"
+      />
+
+      <moviesSlides
+        :show="topRatedItems.length !== 0"
+        :title="'⭐ Top Rated'"
+        :movies="topRatedItems"
+      />
+
+      <moviesSlides
+        :show="actionItems.length !== 0"
+        :title="'💥 Action'"
+        :movies="actionItems"
+      />
+
+      <moviesSlides
+        :show="sciFiItems.length !== 0"
+        :title="'🚀 Sci-Fi'"
+        :movies="sciFiItems"
+      />
+
+      <moviesSlides
+        :show="comedyItems.length !== 0"
+        :title="'😂 Comedy'"
+        :movies="comedyItems"
+      />
+
+      <moviesSlides
+        :show="horrorItems.length !== 0"
+        :title="'👻 Horror'"
+        :movies="horrorItems"
+      />
+
+      <moviesSlides
+        :show="animatedItems.length !== 0"
+        :title="'🎨 Animated'"
+        :movies="animatedItems"
+      />
+
+      <moviesSlides
+        :show="dramaItems.length !== 0"
+        :title="'🎭 Drama'"
+        :movies="dramaItems"
+      />
+    </div>
     <videoPlayer
       v-if="showVideoPlayer"
       ref="videoPlayer"
@@ -165,6 +216,20 @@ export default {
           movie.isFeatured !== true &&
           movie.isTrending !== true &&
           movie.genre === "Animated"
+        );
+      });
+    },
+    tvShowItems() {
+      return this.movie.filter(function (movie) {
+        return movie.type === "tv";
+      });
+    },
+    dramaItems() {
+      return this.movie.filter(function (movie) {
+        return (
+          movie.isFeatured !== true &&
+          movie.isTrending !== true &&
+          movie.genre === "Drama"
         );
       });
     },

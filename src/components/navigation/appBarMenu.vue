@@ -2,75 +2,10 @@
   <div>
     <v-menu offset-y :nudge-width="200">
       <template v-slot:activator="{ on, attrs }">
-        <v-chip
-          v-bind="attrs"
-          v-on="on"
-          class="ml-2 mr-n2 font-weight-bold"
-          :class="$vuetify.theme.dark ? 'white--text' : 'black--text'"
-          :color="$vuetify.theme.dark ? 'grey darken-3' : 'accent'"
-        >
-          <v-avatar class="mr-2">
-            <v-img
-              :src="
-                $store.getters.currentUser.avatar
-                  ? $store.getters.currentUser.avatar
-                  : {
-                      src: require('../../assets/defaultAvatar.png'),
-                      text: 'Default Avatar',
-                      extra: 'Avatar',
-                    }
-              "
-            />
-          </v-avatar>
-          {{ $store.getters.currentUser.name }}
-          <v-icon right size="20"> mdi-chevron-down </v-icon>
-        </v-chip>
+        <v-btn v-bind="attrs" v-on="on" icon class="ml-2">
+          <v-icon>mdi-cog</v-icon>
+        </v-btn>
       </template>
-      <v-list>
-        <v-list-item>
-          <v-hover>
-            <template v-slot:default="{ hover }">
-              <v-list-item-avatar>
-                <v-img
-                  :src="
-                    $store.getters.currentUser.avatar
-                      ? $store.getters.currentUser.avatar
-                      : {
-                          src: require('../../assets/defaultAvatar.png'),
-                          text: 'Default Avatar',
-                          extra: 'Avatar',
-                        }
-                  "
-                />
-                <v-fade-transition>
-                  <v-overlay
-                    v-if="hover"
-                    absolute
-                    style="cursor: pointer"
-                    @click="showProfile = !showProfile"
-                  >
-                    <v-icon size="20">mdi-pencil</v-icon>
-                  </v-overlay>
-                </v-fade-transition>
-              </v-list-item-avatar>
-            </template>
-          </v-hover>
-          <v-list-item-content>
-            <v-list-item-title
-              >{{ $store.getters.currentUser.name }}
-            </v-list-item-title>
-            <v-list-item-subtitle>Logged in</v-list-item-subtitle>
-          </v-list-item-content>
-
-          <v-list-item-action>
-            <v-btn icon @click="signOut">
-              <v-icon>mdi-logout</v-icon>
-            </v-btn>
-          </v-list-item-action>
-        </v-list-item>
-      </v-list>
-
-      <v-divider></v-divider>
       <v-list dense>
         <v-list-item-title class="text-center subtitle-2 mt-2"
           >Settings</v-list-item-title
@@ -137,25 +72,15 @@
             ></v-list-item-content
           >
         </v-list-item>
-      </v-list> </v-menu
-    ><profile
-      :showProfile="showProfile"
-      @closeProfileDialog="showProfile = false"
-    />
+      </v-list>
+    </v-menu>
   </div>
 </template>
 
 <script>
-import { signOut } from "../../services/sessionManagement";
-import profile from "../userManagement/profile.vue";
-
 export default {
-  data: () => ({ showProfile: false }),
-  components: { profile },
+  data: () => ({}),
   methods: {
-    signOut() {
-      signOut();
-    },
     saveSettings(parameter, color) {
       if (parameter === "darkMode") {
         localStorage.setItem("darkTheme", this.$vuetify.theme.dark);
